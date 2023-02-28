@@ -11,3 +11,4 @@ CREATE TABLE todos(
 SELECT * FROM todos;
 
 INSERT INTO todos(todo_description) VALUE ($1);
+DELETE FROM todos WHERE todo_id = 2;
