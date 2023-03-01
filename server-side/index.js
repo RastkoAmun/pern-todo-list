@@ -7,7 +7,7 @@ const PORT = 8080;
 
 //Database connection
 const pool = new Pool({
-  connectionString: 'postgres://postgres:elephant@EL1441@localhost/perntodo'
+  connectionString: 'postgres://postgres:elephant@localhost/perntodo'
 })
 
 //Middleware
@@ -30,7 +30,7 @@ app.get('/todos', async(req, res) => {
 app.get('/todos/:id', async(req, res) => {
   const todo_id = req.params.id;
   try{
-    const todo = await pool.query(`SELECT * FROM todos WHERE todo_id=$1`, [todo_id]);
+    const todo = await pool.query('SELECT * FROM todos WHERE todo_id=$1', [todo_id]);
     res.json(todo.rows[0]);
   }catch(err){
     console.log(err.message);
