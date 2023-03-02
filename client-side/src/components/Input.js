@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const Input = () => {
+const Input = ({setTodos}) => {
   const [todo_description, setDescription] = useState("");
 
   const handleInput = (event) => {
@@ -17,9 +17,10 @@ const Input = () => {
         body: JSON.stringify(newTodo)
       }
       const response = await fetch('http://localhost:8080/todos', options);
-
-      //check later
-      //window.location = '/';
+      const res = await fetch('http://localhost:8080/todos');
+      const jsonData = await res.json();
+      setTodos(jsonData);
+      setDescription("");
     }catch(err) {
       console.error(err.message);
     }
