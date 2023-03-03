@@ -23,8 +23,8 @@ function App() {
   return (
     <div>
       <h1 className='text-center mt-5'>TODO LIST</h1>
-      <Input setTodos={setAllTodos} />
-      <ListOfTodos todos={allTodos} setTodos={setAllTodos}/>
+      <Input getTodos={getTodos} />
+      <ListOfTodos todos={allTodos} setTodos={setAllTodos} getTodos={getTodos}/>
     </div>
   );
 }

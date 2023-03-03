@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import EditTodo from "./EditTodo";
 
-const ListOfTodos = ({todos, setTodos}) => {
+const ListOfTodos = ({todos, setTodos, getTodos}) => {
   
   const deleteTodo = async (id) => {
     try {
@@ -28,7 +28,7 @@ const ListOfTodos = ({todos, setTodos}) => {
             return(
                 <tr key={todo.todo_id}>
                   <td className='col col-10'>{todo.todo_description}</td>
-                  <td className='col col-1'><button className='btn btn-warning'>Edit</button></td>
+                  <td className='col col-1'><EditTodo todo={todo} getTodos={getTodos}/></td>
                   <td className='col col-2'><button className='btn btn-danger' onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
                 </tr>)
           })}
